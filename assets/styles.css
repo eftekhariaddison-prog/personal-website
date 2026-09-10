@@ -173,35 +173,54 @@ h1 { margin: 0; font-size: clamp(3.4rem, 8vw, 7.6rem); line-height: .88; letter-
 .splash-blob {
   position: absolute;
   border-radius: 50%;
-  transform: scale(.12);
-  opacity: 0;
-  animation: splash-in 1100ms cubic-bezier(.19, 1.55, .38, 1) forwards;
+  filter: blur(9px);
+  opacity: 1;
 }
 .splash-blob--poppy {
   width: 48vw; height: 48vw; left: -10vw; top: -12vw;
   background: radial-gradient(circle, rgba(233,121,53,.65), rgba(233,121,53,0) 68%);
-  animation-delay: 0ms;
+  animation: drift-poppy 58s ease-in-out infinite;
 }
 .splash-blob--sky {
   width: 42vw; height: 42vw; right: -8vw; top: -10vw;
   background: radial-gradient(circle, rgba(200,223,224,.8), rgba(200,223,224,0) 68%);
-  animation-delay: 110ms;
+  animation: drift-sky 71s ease-in-out infinite;
 }
 .splash-blob--lavender {
   width: 38vw; height: 38vw; right: 2vw; bottom: -16vw;
   background: radial-gradient(circle, rgba(143,136,181,.6), rgba(143,136,181,0) 68%);
-  animation-delay: 210ms;
+  animation: drift-lavender 64s ease-in-out infinite;
 }
 .splash-blob--sage {
   width: 32vw; height: 32vw; left: 0vw; bottom: -10vw;
   background: radial-gradient(circle, rgba(102,116,97,.5), rgba(102,116,97,0) 68%);
-  animation-delay: 300ms;
+  animation: drift-sage 80s ease-in-out infinite;
 }
-@keyframes splash-in {
-  0%   { transform: scale(.12); opacity: .95; filter: blur(0px); }
-  38%  { transform: scale(1.14); opacity: .75; filter: blur(3px); }
-  68%  { transform: scale(.93); opacity: .55; filter: blur(6px); }
-  100% { transform: scale(1); opacity: 1; filter: blur(9px); }
+@keyframes drift-poppy {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(3.5vw, 2.5vh) scale(1.07); }
+  50%  { transform: translate(-1.5vw, 5vh) scale(.95); }
+  75%  { transform: translate(-4vw, 1vh) scale(1.04); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes drift-sky {
+  0%   { transform: translate(0, 0) scale(1); }
+  30%  { transform: translate(-3vw, 3vh) scale(1.05); }
+  55%  { transform: translate(-4.5vw, -1vh) scale(.94); }
+  80%  { transform: translate(1.5vw, 2vh) scale(1.02); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes drift-lavender {
+  0%   { transform: translate(0, 0) scale(1); }
+  35%  { transform: translate(2.5vw, -3vh) scale(1.06); }
+  65%  { transform: translate(4vw, 2vh) scale(.96); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes drift-sage {
+  0%   { transform: translate(0, 0) scale(1); }
+  40%  { transform: translate(-2.5vw, -2vh) scale(1.05); }
+  70%  { transform: translate(2vw, -4vh) scale(.97); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
 .botanical { position: absolute; pointer-events: none; opacity: .14; }
@@ -227,5 +246,5 @@ h1 { margin: 0; font-size: clamp(3.4rem, 8vw, 7.6rem); line-height: .88; letter-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
-  .splash-blob { animation: none; transform: scale(1); opacity: 1; filter: blur(9px); }
+  .splash-blob { animation: none; }
 }
