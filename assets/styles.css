@@ -179,48 +179,56 @@ h1 { margin: 0; font-size: clamp(3.4rem, 8vw, 7.6rem); line-height: .88; letter-
 .splash-blob--poppy {
   width: 48vw; height: 48vw; left: -10vw; top: -12vw;
   background: radial-gradient(circle, rgba(233,121,53,.65), rgba(233,121,53,0) 68%);
-  animation: drift-poppy 58s ease-in-out infinite;
+  animation: drift-poppy 72s ease-in-out infinite;
+  animation-delay: -9s;
 }
 .splash-blob--sky {
   width: 42vw; height: 42vw; right: -8vw; top: -10vw;
   background: radial-gradient(circle, rgba(200,223,224,.8), rgba(200,223,224,0) 68%);
-  animation: drift-sky 71s ease-in-out infinite;
+  animation: drift-sky 89s ease-in-out infinite;
+  animation-delay: -34s;
 }
 .splash-blob--lavender {
   width: 38vw; height: 38vw; right: 2vw; bottom: -16vw;
   background: radial-gradient(circle, rgba(143,136,181,.6), rgba(143,136,181,0) 68%);
-  animation: drift-lavender 64s ease-in-out infinite;
+  animation: drift-lavender 80s ease-in-out infinite;
+  animation-delay: -52s;
 }
 .splash-blob--sage {
   width: 32vw; height: 32vw; left: 0vw; bottom: -10vw;
   background: radial-gradient(circle, rgba(102,116,97,.5), rgba(102,116,97,0) 68%);
-  animation: drift-sage 80s ease-in-out infinite;
+  animation: drift-sage 102s ease-in-out infinite;
+  animation-delay: -18s;
 }
 @keyframes drift-poppy {
-  0%   { transform: translate(0, 0) scale(1); }
-  25%  { transform: translate(3.5vw, 2.5vh) scale(1.07); }
-  50%  { transform: translate(-1.5vw, 5vh) scale(.95); }
-  75%  { transform: translate(-4vw, 1vh) scale(1.04); }
-  100% { transform: translate(0, 0) scale(1); }
+  0%   { transform: translate(-14vw, -8vh) scale(.75); }
+  18%  { transform: translate(16vw, 22vh) scale(1.2); }
+  41%  { transform: translate(58vw, -10vh) scale(.55); }
+  63%  { transform: translate(10vw, 42vh) scale(1.1); }
+  82%  { transform: translate(-52vw, 6vh) scale(.6); }
+  100% { transform: translate(-14vw, -8vh) scale(.75); }
 }
 @keyframes drift-sky {
-  0%   { transform: translate(0, 0) scale(1); }
-  30%  { transform: translate(-3vw, 3vh) scale(1.05); }
-  55%  { transform: translate(-4.5vw, -1vh) scale(.94); }
-  80%  { transform: translate(1.5vw, 2vh) scale(1.02); }
-  100% { transform: translate(0, 0) scale(1); }
+  0%   { transform: translate(10vw, -10vh) scale(.8); }
+  22%  { transform: translate(-38vw, 18vh) scale(1.15); }
+  47%  { transform: translate(-12vw, 50vh) scale(.55); }
+  70%  { transform: translate(34vw, 10vh) scale(1.05); }
+  88%  { transform: translate(50vw, -22vh) scale(.65); }
+  100% { transform: translate(10vw, -10vh) scale(.8); }
 }
 @keyframes drift-lavender {
-  0%   { transform: translate(0, 0) scale(1); }
-  35%  { transform: translate(2.5vw, -3vh) scale(1.06); }
-  65%  { transform: translate(4vw, 2vh) scale(.96); }
-  100% { transform: translate(0, 0) scale(1); }
+  0%   { transform: translate(6vw, 10vh) scale(.75); }
+  26%  { transform: translate(-34vw, -30vh) scale(1.18); }
+  52%  { transform: translate(-56vw, 14vh) scale(.58); }
+  74%  { transform: translate(-8vw, 46vh) scale(1.08); }
+  100% { transform: translate(6vw, 10vh) scale(.75); }
 }
 @keyframes drift-sage {
-  0%   { transform: translate(0, 0) scale(1); }
-  40%  { transform: translate(-2.5vw, -2vh) scale(1.05); }
-  70%  { transform: translate(2vw, -4vh) scale(.97); }
-  100% { transform: translate(0, 0) scale(1); }
+  0%   { transform: translate(-10vw, -14vh) scale(.78); }
+  30%  { transform: translate(30vw, -36vh) scale(1.12); }
+  58%  { transform: translate(50vw, 20vh) scale(.6); }
+  80%  { transform: translate(4vw, 34vh) scale(1.06); }
+  100% { transform: translate(-10vw, -14vh) scale(.78); }
 }
 
 .botanical { position: absolute; pointer-events: none; opacity: .14; }
