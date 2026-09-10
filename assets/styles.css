@@ -265,12 +265,19 @@ h1 { margin: 0; font-size: clamp(3.4rem, 8vw, 7.6rem); line-height: .88; letter-
   .content-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
+  html, body { overflow-x: hidden; }
   .container { width: min(100% - 28px, 1120px); }
-  .site-header { display: block; }
-  .nav { margin-top: 18px; justify-content: flex-start; }
-  .welcome { padding-top: 54px; }
-  h1 { font-size: clamp(3.1rem, 18vw, 5.2rem); }
-  .choice { flex: 1; min-width: 135px; padding-inline: 14px; }
+  .site-header { display: block; min-height: auto; padding-block: 16px; }
+  .brand { font-size: 1.5rem; gap: 7px; }
+  .brand-mark { width: 30px; height: 30px; }
+  .nav { margin-top: 14px; justify-content: flex-start; gap: 12px; }
+  .welcome { padding-block: 22px 36px; gap: 22px; }
+  .eyebrow { margin-bottom: 10px; font-size: .68rem; }
+  h1 { font-size: clamp(2.5rem, 13vw, 3.6rem); letter-spacing: -.03em; }
+  .welcome h1 span { margin-left: 5vw; }
+  .intro { margin: 16px 0 22px; font-size: 1rem; line-height: 1.6; }
+  .choice-grid { gap: 10px; }
+  .choice { flex: 1 1 calc(50% - 5px); min-width: 0; padding: 13px 8px; font-size: .72rem; letter-spacing: .07em; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
