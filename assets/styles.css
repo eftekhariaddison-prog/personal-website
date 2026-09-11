@@ -162,7 +162,7 @@ h1 { margin: 0; font-size: clamp(3.4rem, 8vw, 7.6rem); line-height: .88; letter-
 
 .section-hero { padding: clamp(70px, 10vw, 130px) 0 62px; }
 .section-hero h1 { max-width: 900px; font-size: clamp(3.2rem, 7vw, 6.6rem); }
-.section-hero h1 em { color: var(--poppy-dark); font-weight: inherit; }
+.section-hero h1 em { color: var(--poppy-dark); font-weight: 400; font-family: var(--cursive); font-style: normal; font-size: 1.08em; }
 .section-hero p { max-width: 650px; color: #536058; font: 1.15rem/1.75 var(--serif); }
 .content-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 26px; padding-bottom: 90px; }
 .card {
@@ -194,30 +194,30 @@ h1 { margin: 0; font-size: clamp(3.4rem, 8vw, 7.6rem); line-height: .88; letter-
 .splash-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(9px);
-  opacity: 1;
+  filter: blur(15px);
+  opacity: .55;
 }
 .splash-blob--poppy {
   width: 48vw; height: 48vw; left: -10vw; top: -12vw;
-  background: radial-gradient(circle, rgba(233,121,53,.65), rgba(233,121,53,0) 68%);
+  background: radial-gradient(circle, rgba(233,121,53,.32), rgba(233,121,53,0) 68%);
   animation: drift-poppy 72s ease-in-out infinite;
   animation-delay: -9s;
 }
 .splash-blob--sky {
   width: 42vw; height: 42vw; right: -8vw; top: -10vw;
-  background: radial-gradient(circle, rgba(200,223,224,.8), rgba(200,223,224,0) 68%);
+  background: radial-gradient(circle, rgba(200,223,224,.42), rgba(200,223,224,0) 68%);
   animation: drift-sky 89s ease-in-out infinite;
   animation-delay: -34s;
 }
 .splash-blob--lavender {
   width: 38vw; height: 38vw; right: 2vw; bottom: -16vw;
-  background: radial-gradient(circle, rgba(143,136,181,.6), rgba(143,136,181,0) 68%);
+  background: radial-gradient(circle, rgba(143,136,181,.3), rgba(143,136,181,0) 68%);
   animation: drift-lavender 80s ease-in-out infinite;
   animation-delay: -52s;
 }
 .splash-blob--sage {
   width: 32vw; height: 32vw; left: 0vw; bottom: -10vw;
-  background: radial-gradient(circle, rgba(102,116,97,.5), rgba(102,116,97,0) 68%);
+  background: radial-gradient(circle, rgba(102,116,97,.26), rgba(102,116,97,0) 68%);
   animation: drift-sage 102s ease-in-out infinite;
   animation-delay: -18s;
 }
