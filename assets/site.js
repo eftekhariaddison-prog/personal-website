@@ -11,7 +11,7 @@ document.querySelectorAll('[data-year]').forEach(function (node) {
 
   var leafFiles = ['petal-poppy.svg', 'leaf-sage.svg', 'petal-poppy.svg', 'bud-lavender.svg', 'leaf-sage.svg', 'petal-poppy.svg'];
   var LEAF_COUNT = 16;
-  var INACTIVITY_MS = 30000;
+  var INACTIVITY_MS = 60000;
   var FADE_MS = 1200;
   var FLY_MS_MIN = 4600;
   var FLY_MS_MAX = 7800;
