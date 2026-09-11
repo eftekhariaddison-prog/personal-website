@@ -13,13 +13,25 @@ document.querySelectorAll('[data-year]').forEach(function (node) {
   var LEAF_COUNT = 16;
   var INACTIVITY_MS = 30000;
   var FADE_MS = 1200;
-  var FLY_MS_MIN = 3200;
-  var FLY_MS_MAX = 5600;
+  var FLY_MS_MIN = 3600;
+  var FLY_MS_MAX = 6200;
   var STAGGER_MS = 1800;
+  var PREEMPT_MS = 900;
+  var RETURN_MS = 1300;
 
   var container = document.createElement('div');
   container.className = 'windstorm';
   container.setAttribute('aria-hidden', 'true');
+
+  function setViewportPx() {
+    var vw = window.innerWidth + 'px';
+    var vh = window.innerHeight + 'px';
+    document.documentElement.style.setProperty('--vwpx', vw);
+    document.documentElement.style.setProperty('--vhpx', vh);
+  }
+  setViewportPx();
+  setTimeout(setViewportPx, 50);
+  window.addEventListener('resize', setViewportPx, { passive: true });
 
   var leaves = [];
   for (var i = 0; i < LEAF_COUNT; i++) {
@@ -32,7 +44,7 @@ document.querySelectorAll('[data-year]').forEach(function (node) {
     var duration = (FLY_MS_MIN + Math.random() * (FLY_MS_MAX - FLY_MS_MIN)) / 1000;
     var delay = (Math.random() * STAGGER_MS) / 1000;
     var rotStart = Math.random() * 360;
-    var wobble = 18 + Math.random() * 46;
+    var wobble = 70 + Math.random() * 100;
     img.style.top = top + '%';
     img.style.width = size + 'px';
     img.style.setProperty('--duration', duration + 's');
@@ -49,9 +61,11 @@ document.querySelectorAll('[data-year]').forEach(function (node) {
   if (document.body) onReady();
   else document.addEventListener('DOMContentLoaded', onReady);
 
+  var ambientPetals = Array.prototype.slice.call(document.querySelectorAll('.petal'));
+
   var idleTimer = null;
   var stormRunning = false;
-  var totalStormMs = FADE_MS + STAGGER_MS + FLY_MS_MAX + FADE_MS;
+  var mainStormMs = FADE_MS + STAGGER_MS + FLY_MS_MAX + FADE_MS;
 
   function scheduleIdleCheck() {
     clearTimeout(idleTimer);
@@ -61,20 +75,37 @@ document.querySelectorAll('[data-year]').forEach(function (node) {
   function triggerWindstorm() {
     if (stormRunning) return;
     stormRunning = true;
-    leaves.forEach(function (leaf) { leaf.classList.remove('windstorm-fly'); });
-    container.classList.add('windstorm-active');
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        leaves.forEach(function (leaf) { leaf.classList.add('windstorm-fly'); });
-      });
+
+    // Ambient petals blow off screen first, ahead of the main storm.
+    ambientPetals.forEach(function (p) {
+      p.classList.remove('storm-return');
+      p.classList.add('storm-exit');
     });
+
     setTimeout(function () {
-      container.classList.remove('windstorm-active');
+      leaves.forEach(function (leaf) { leaf.classList.remove('windstorm-fly'); });
+      container.classList.add('windstorm-active');
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          leaves.forEach(function (leaf) { leaf.classList.add('windstorm-fly'); });
+        });
+      });
+
       setTimeout(function () {
-        stormRunning = false;
-        scheduleIdleCheck();
-      }, FADE_MS);
-    }, totalStormMs - FADE_MS);
+        // Storm fading out: bring the ambient petals gently back at the same time.
+        container.classList.remove('windstorm-active');
+        ambientPetals.forEach(function (p) {
+          p.classList.remove('storm-exit');
+          p.classList.add('storm-return');
+        });
+
+        setTimeout(function () {
+          ambientPetals.forEach(function (p) { p.classList.remove('storm-return'); });
+          stormRunning = false;
+          scheduleIdleCheck();
+        }, Math.max(FADE_MS, RETURN_MS));
+      }, mainStormMs - FADE_MS);
+    }, PREEMPT_MS);
   }
 
   ['mousemove', 'keydown', 'scroll', 'touchstart', 'click', 'wheel'].forEach(function (evt) {
