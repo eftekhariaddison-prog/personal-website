@@ -13,8 +13,8 @@ document.querySelectorAll('[data-year]').forEach(function (node) {
   var LEAF_COUNT = 16;
   var INACTIVITY_MS = 30000;
   var FADE_MS = 1200;
-  var FLY_MS_MIN = 3600;
-  var FLY_MS_MAX = 6200;
+  var FLY_MS_MIN = 4600;
+  var FLY_MS_MAX = 7800;
   var STAGGER_MS = 1800;
   var PREEMPT_MS = 900;
   var RETURN_MS = 1300;
