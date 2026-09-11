@@ -1,0 +1,16 @@
+<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <radialGradient id="pg" cx="38%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#f2985d"/>
+      <stop offset="60%" stop-color="#e97935"/>
+      <stop offset="100%" stop-color="#b6491e"/>
+    </radialGradient>
+    <filter id="wob" x="-40%" y="-40%" width="180%" height="180%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.09 0.12" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#wob)">
+    <path d="M30 54C18 46 10 32 14 20C17 10 27 6 32 14C36 21 34 34 30 54Z" fill="url(#pg)" opacity=".9"/>
+  </g>
+</svg>

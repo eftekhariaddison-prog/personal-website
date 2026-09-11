@@ -1,0 +1,9 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g fill="#bb4d21">
+    <circle cx="12" cy="6.2" r="4.4"/>
+    <circle cx="12" cy="17.8" r="4.4"/>
+    <circle cx="6.2" cy="12" r="4.4"/>
+    <circle cx="17.8" cy="12" r="4.4"/>
+  </g>
+  <circle cx="12" cy="12" r="3.1" fill="#7a3313"/>
+</svg>

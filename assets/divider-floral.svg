@@ -1,0 +1,17 @@
+<svg viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <line x1="0" y1="10" x2="180" y2="10" stroke="#435246" stroke-width="1" opacity=".22"/>
+  <g opacity=".6">
+    <path d="M34 6c-2 1-2 3 0 4c-2 1-2 3 0 4c2-1 2-3 0-4c2-1 2-3 0-4Z" fill="#bb4d21"/>
+    <path d="M30 10c1-2 3-2 4 0c1-2 3-2 4 0c-1 2-3 2-4 0c-1 2-3 2-4 0Z" fill="#bb4d21"/>
+    <circle cx="34" cy="10" r="1.1" fill="#7a3313"/>
+  </g>
+  <g opacity=".5">
+    <path d="M104 10c4-5 4-9-1-9c-4 0-5 6 1 9Z" fill="#667461"/>
+    <path d="M104 3v11" stroke="#435246" stroke-width=".8"/>
+  </g>
+  <g opacity=".45">
+    <circle cx="152" cy="10" r="2.2" fill="#8f88b5"/>
+    <circle cx="147" cy="8" r="1.3" fill="#8f88b5"/>
+    <circle cx="157" cy="8" r="1.3" fill="#8f88b5"/>
+  </g>
+</svg>
