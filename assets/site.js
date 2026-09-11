@@ -61,7 +61,16 @@ document.querySelectorAll('[data-year]').forEach(function (node) {
   if (document.body) onReady();
   else document.addEventListener('DOMContentLoaded', onReady);
 
-  var ambientPetals = Array.prototype.slice.call(document.querySelectorAll('.petal'));
+  var ambientPetals = Array.prototype.slice.call(document.querySelectorAll('.petal')).map(function (petal) {
+    var wrap = document.createElement('span');
+    wrap.className = 'petal-wrap ' + Array.prototype.slice.call(petal.classList)
+      .filter(function (c) { return c !== 'petal'; })
+      .map(function (c) { return c.replace('petal--', 'petal-wrap--'); })
+      .join(' ');
+    petal.parentNode.insertBefore(wrap, petal);
+    wrap.appendChild(petal);
+    return wrap;
+  });
 
   var idleTimer = null;
   var stormRunning = false;
